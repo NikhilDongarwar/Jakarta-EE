@@ -74,8 +74,74 @@ on submit , request should go to "RegisterServ" (init and doPost) which will add
 
 when user clicks on "login" link, "Login.html" will be displayed. it will accept "login name" and "password".
 on submit request should go to "LoginServ" (init and doGet()) which will search entered login and password inside "register" table and if found, forward the control to "success.html".  if not found then forward to "fail.html" which will have following link:
+
+
 	Retry - Home.html
 
 create html page "Admin.html" which will have a link "View All Users". when user clicks on a link control should go to "ViewServ" servlet (init and doGet) which will retrieve all the users who have registered and display them.
+
+
+###DAO_assignment
+
+DAO ( Data Access Object) design pattern
+A DAO class provides access to a particular data resource in the data tier (e.g. relational database, XML, mainframe etc. ) without coupling the resource’s API to the business logic in the business tier.
+For example :- you may have a EmployeeBO business object class access all of its employees in the database using a DAO interface EmployeeDAO. If your data resource change from a database to a Mainframe system, then reimplementing EmployeeDAO for a different data access mechanism would have little or no impact on any classes like EmployeeBO that uses EmployeeDAO with method “store(EmployeeBO)” because only the implementation (e.g. EmployeeDAODatabaseImpl or EmployeeDAOFileImpl ) would change but the interface remains the same. All the classes that use the DAO should  code to interface not implementation. 
+Business objects represents the data client. They are the objects that require access to the datasource to obtain and store data. Data Access Objects abstract the underlying data access implementation for the business objects to enable transparent access to the datasource. The business objects also delegate data load and store operations to the Data Access Objects. A Datasource represents a database such as a relational database, XML repository, flat file , mainframe system etc. 
+
+Question==>>
+    create an entity "Student" with
+	int rollno   [ id ]
+	String name
+	String address
+
+create an interface
+
+		StudentDAO with method
+	void addStudent(Student)
+	
+
+create two implementations
+
+	StudentDAOFileImpl.java
+		which will persist given student inside file using serialization.
+
+	StudentDAODataImpl.java
+		which will persist given student inside database using hibernate.
+
+
+Add.jsp
+
+	Enter student name:
+	Enter student address
+		
+		Select persistence store: dropdown
+			with values
+
+				file 
+				database
+
+		submit
+
+on submit control should go to "AddServlet"
+
+AddServlet will have a reference to 
+
+	StudentDAO sdao;
+the idea here is that "sdao" can point to any implementation of "StudentDAO" and invoke "addStudent()" polymorphically.
+
+inside doPost() method 
+a) instantiate "Student" with the values provided by user.
+b) u will check the persistence store selected by user.
+if this is "file"
+	set the rollno.
+	servlet will instantiate "StudentDAOFileImpl" and invoke "addStudent()" method.
+
+if this is "data"
+	servlet will instantiate "StudentDAODataImpl" and invoke "addStudent()" method.
+
+
+
+
+
 
 
