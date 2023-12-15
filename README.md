@@ -140,6 +140,20 @@ if this is "data"
 	servlet will instantiate "StudentDAODataImpl" and invoke "addStudent()" method.
 
 
+ ###First_Spring_Application
+
+
+ Person class with
+name,address and age
+toString() method.
+
+create a form in jsp "person.html" (thymeleaf) which will accept name,address and age and on submit control will go to "View.html" (thymeleaf) which will display person class object with name,address and age entered by user.
+
+ "PersonController" with "@GetMapping" and "@PostMapping" methods.
+
+
+
+
 
 
 
