@@ -81,7 +81,7 @@ on submit request should go to "LoginServ" (init and doGet()) which will search 
 create html page "Admin.html" which will have a link "View All Users". when user clicks on a link control should go to "ViewServ" servlet (init and doGet) which will retrieve all the users who have registered and display them.
 
 
-###DAO_assignment
+### DAO_assignment
 
 DAO ( Data Access Object) design pattern
 A DAO class provides access to a particular data resource in the data tier (e.g. relational database, XML, mainframe etc. ) without coupling the resource’s API to the business logic in the business tier.
@@ -140,7 +140,7 @@ if this is "data"
 	servlet will instantiate "StudentDAODataImpl" and invoke "addStudent()" method.
 
 
- ###First_Spring_Application
+ ### First_Spring_Application
 
 
  Person class with
